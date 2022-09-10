@@ -1,0 +1,1 @@
+ dist/default/production/compiler_support.d  dist/default/production/compiler_support.p1:  C:/Program\ Files/Microchip/xc8/v2.36/pic/sources/c90/pic/compiler_support.c C:/Program\ Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/language_support.h
