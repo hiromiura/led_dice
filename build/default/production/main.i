@@ -3556,7 +3556,6 @@ TMR2ON = 1;
 
 while (1)
 {
-
 mainLoop();
 }
 }
@@ -3580,6 +3579,7 @@ TRISA2=0;
 _delay((unsigned long)((600)*(125000/4000.0)));
 TRISA2=1;
 
+
 for (int i=0; i<255 ; i++){
 _delay((unsigned long)((10)*(125000/4000.0)));
 }
@@ -3591,10 +3591,10 @@ void randomSeed(long val)
 {
 unsigned int temp;
 static long randomx;
-TRISA2=1;
-ANSA2=1;
-WPUA2=0;
-ADCON0=0b00001001;
+TRISA0=1;
+ANSA0=1;
+WPUA0=0;
+ADCON0=0b00000101;
 if (val == 0) {
 while(1) {
 GO_nDONE = 1 ;
@@ -3605,8 +3605,8 @@ if (temp > 0) break ;
 randomx = temp ;
 } else randomx = val ;
 ADCON0=0;
-WPUA2=1;
-ANSA2=0;
-TRISA2=0;
+WPUA0=1;
+ANSA0=0;
+TRISA0=0;
 srand(randomx);
 }

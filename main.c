@@ -33,7 +33,6 @@ void main(void)
             
     while (1)
     {
-        // Add your application code
         mainLoop();
     }
 }
@@ -57,6 +56,7 @@ int prev_dice;
     __delay_ms(600);
     TRISA2=1;
     
+    // 一定時間が経過したらスリープ
     for (int i=0; i<255 ; i++){
         __delay_ms(10);
     }
@@ -68,22 +68,22 @@ void randomSeed(long val)
 {
      unsigned int temp;
      static long randomx;
-     TRISA2=1;
-     ANSA2=1;
-     WPUA2=0;
-     ADCON0=0b00001001;
+     TRISA0=1;  // 入力に設定
+     ANSA0=1;   // アナログ入力に設定
+     WPUA0=0;   // 内部プルアップ無効
+     ADCON0=0b00000101; // AN0を選択, ADC有効
      if (val == 0) {
           while(1) {
                GO_nDONE = 1 ;      // PICにアナログ値読取り開始を指示
                while(GO_nDONE) ;   // PICが読取り完了するまで待つ
-               temp = ( ADRESH << 8 ) | ADRESL ;  // 10ビットの分解能力です
+               temp = ( ADRESH << 8 ) | ADRESL ;
                if (temp > 0) break ;
           }
           randomx = temp ;
      } else randomx = val ;   // 指定数値をそのまま初期値とする
-     ADCON0=0;
-     WPUA2=1;
-     ANSA2=0;
-     TRISA2=0;
+     ADCON0=0;  // ADC無効
+     WPUA0=1;   // 内部プルアップ有効
+     ANSA0=0;   // アナログ入力無効
+     TRISA0=0;  // ポートを出力に設定
      srand(randomx);
 }

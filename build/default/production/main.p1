@@ -28,10 +28,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
 [v __delay `JF1782 ~T0 @X0 0 e ]
 [p i __delay ]
-"5135 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
-[v _ANSA2 `Vb ~T0 @X0 0 e@3170 ]
-"6170
-[v _WPUA2 `Vb ~T0 @X0 0 e@4194 ]
+"6080 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+[v _TRISA0 `Vb ~T0 @X0 0 e@1120 ]
+"5129
+[v _ANSA0 `Vb ~T0 @X0 0 e@3168 ]
+"6164
+[v _WPUA0 `Vb ~T0 @X0 0 e@4192 ]
 "1826
 [v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
 "5450
@@ -2337,34 +2339,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 35: {
 "35
 {
-[; ;main.c: 37: mainLoop();
-"37
+[; ;main.c: 36: mainLoop();
+"36
 [e ( _mainLoop ..  ]
-"38
+"37
 }
 [e :U 275 ]
 "34
 [e $U 276  ]
 [e :U 277 ]
+[; ;main.c: 37: }
 [; ;main.c: 38: }
-[; ;main.c: 39: }
-"39
+"38
 [e :UE 274 ]
 }
-"42
+"41
 [v _mainLoop `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 42: void mainLoop(void){
+[; ;main.c: 41: void mainLoop(void){
 [e :U _mainLoop ]
 [f ]
-"43
+"42
 [v _val_dice `i ~T0 @X0 1 a ]
-"44
+"43
 [v _prev_dice `i ~T0 @X0 1 a ]
-[; ;main.c: 43: int val_dice;
-[; ;main.c: 44: int prev_dice;
-[; ;main.c: 46: for (int a = 30 ; a > 0 ; a--){
-"46
+[; ;main.c: 42: int val_dice;
+[; ;main.c: 43: int prev_dice;
+[; ;main.c: 45: for (int a = 30 ; a > 0 ; a--){
+"45
 {
 [v _a `i ~T0 @X0 1 a ]
 [e = _a -> 30 `i ]
@@ -2372,49 +2374,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 280  ]
 [e :U 279 ]
 {
-[; ;main.c: 47: val_dice = rand() % 6 ;
-"47
+[; ;main.c: 46: val_dice = rand() % 6 ;
+"46
 [e = _val_dice % ( _rand ..  -> 6 `i ]
-[; ;main.c: 48: if (val_dice != prev_dice) {
-"48
+[; ;main.c: 47: if (val_dice != prev_dice) {
+"47
 [e $ ! != _val_dice _prev_dice 282  ]
 {
-[; ;main.c: 49: PORTA = DICE[val_dice];
-"49
+[; ;main.c: 48: PORTA = DICE[val_dice];
+"48
 [e = _PORTA -> *U + &U _DICE * -> -> _val_dice `ui `ux -> -> # *U &U _DICE `ui `ux `uc ]
-[; ;main.c: 50: TRISA2=0;
-"50
+[; ;main.c: 49: TRISA2=0;
+"49
 [e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 51: _delay((unsigned long)((1)*(125000/4000.0)));
-"51
+[; ;main.c: 50: _delay((unsigned long)((1)*(125000/4000.0)));
+"50
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 52: TRISA2=1;
-"52
+[; ;main.c: 51: TRISA2=1;
+"51
 [e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 53: prev_dice = val_dice;
-"53
+[; ;main.c: 52: prev_dice = val_dice;
+"52
 [e = _prev_dice _val_dice ]
-"54
+"53
 }
 [e :U 282 ]
-"55
+"54
 }
-"46
+"45
 [e -- _a -> 1 `i ]
 [e $ > _a -> 0 `i 279  ]
 [e :U 280 ]
-"55
+"54
 }
+[; ;main.c: 53: }
 [; ;main.c: 54: }
-[; ;main.c: 55: }
-[; ;main.c: 56: TRISA2=0;
-"56
+[; ;main.c: 55: TRISA2=0;
+"55
 [e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 57: _delay((unsigned long)((600)*(125000/4000.0)));
-"57
+[; ;main.c: 56: _delay((unsigned long)((600)*(125000/4000.0)));
+"56
 [e ( __delay (1 -> * -> -> 600 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 58: TRISA2=1;
-"58
+[; ;main.c: 57: TRISA2=1;
+"57
 [e = _TRISA2 -> -> 1 `i `b ]
 [; ;main.c: 60: for (int i=0; i<255 ; i++){
 "60
@@ -2464,18 +2466,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F2010 `l ~T0 @X0 1 s randomx ]
 [; ;main.c: 69: unsigned int temp;
 [; ;main.c: 70: static long randomx;
-[; ;main.c: 71: TRISA2=1;
+[; ;main.c: 71: TRISA0=1;
 "71
-[e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 72: ANSA2=1;
+[e = _TRISA0 -> -> 1 `i `b ]
+[; ;main.c: 72: ANSA0=1;
 "72
-[e = _ANSA2 -> -> 1 `i `b ]
-[; ;main.c: 73: WPUA2=0;
+[e = _ANSA0 -> -> 1 `i `b ]
+[; ;main.c: 73: WPUA0=0;
 "73
-[e = _WPUA2 -> -> 0 `i `b ]
-[; ;main.c: 74: ADCON0=0b00001001;
+[e = _WPUA0 -> -> 0 `i `b ]
+[; ;main.c: 74: ADCON0=0b00000101;
 "74
-[e = _ADCON0 -> -> 9 `i `uc ]
+[e = _ADCON0 -> -> 5 `i `uc ]
 [; ;main.c: 75: if (val == 0) {
 "75
 [e $ ! == _val -> -> 0 `i `l 287  ]
@@ -2522,15 +2524,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 84: ADCON0=0;
 "84
 [e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 85: WPUA2=1;
+[; ;main.c: 85: WPUA0=1;
 "85
-[e = _WPUA2 -> -> 1 `i `b ]
-[; ;main.c: 86: ANSA2=0;
+[e = _WPUA0 -> -> 1 `i `b ]
+[; ;main.c: 86: ANSA0=0;
 "86
-[e = _ANSA2 -> -> 0 `i `b ]
-[; ;main.c: 87: TRISA2=0;
+[e = _ANSA0 -> -> 0 `i `b ]
+[; ;main.c: 87: TRISA0=0;
 "87
-[e = _TRISA2 -> -> 0 `i `b ]
+[e = _TRISA0 -> -> 0 `i `b ]
 [; ;main.c: 88: srand(randomx);
 "88
 [e ( _srand (1 -> F2010 `ui ]
