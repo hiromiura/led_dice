@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F1847 `(v ~T0 @X0 0 tf ]
-"1915 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"1915 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@158 ]
 "1786
 [v _ADRESL `Vuc ~T0 @X0 0 e@155 ]
@@ -11,7 +11,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "86 mcc_generated_files/adc.c
 [c E1826 0 29 30 31 .. ]
 [n E1826 . channel_AN0 channel_Temp channel_DAC channel_FVR  ]
-"1832 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"1832 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [s S95 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S95 . ADON GO_nDONE CHS0 CHS1 CHS2 CHS3 CHS4 ]
 "1841
@@ -29,14 +29,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1855
 [v _ADCON0bits `VS94 ~T0 @X0 0 e@157 ]
 [v F1782 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
+"92 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
 [v __delay `JF1782 ~T0 @X0 0 e ]
 [p i __delay ]
 [; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;xc8\pic\include\proc\pic12f1822.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"54 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [; ;xc8\pic\include\proc\pic12f1822.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;xc8\pic\include\proc\pic12f1822.h: 57: typedef union {

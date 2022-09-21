@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2797 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"2797 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S147 . RD WR WREN WRERR FREE LWLO CFGS EEPGD ]
 "2796
@@ -41,7 +41,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;xc8\pic\include\proc\pic12f1822.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"54 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [; ;xc8\pic\include\proc\pic12f1822.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;xc8\pic\include\proc\pic12f1822.h: 57: typedef union {
