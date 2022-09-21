@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "70 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "8 main.c
-[v _randomSeed `(v ~T0 @X0 0 ef ]
+[v _randomSeed `(i ~T0 @X0 0 ef ]
 "6086 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [v _TRISA2 `Vb ~T0 @X0 0 e@1122 ]
 "1057
@@ -19,7 +19,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "6077
 [v _TMR2ON `Vb ~T0 @X0 0 e@226 ]
 "7 main.c
-[v _mainLoop `(v ~T0 @X0 0 ef ]
+[v _mainLoop `(i ~T0 @X0 0 ef ]
 "75 C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h
 [v _rand `(i ~T0 @X0 0 ef ]
 "429 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
@@ -2285,23 +2285,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;main.c: 5: int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001};
-[; ;main.c: 7: void mainLoop(void);
-[; ;main.c: 8: void randomSeed();
+[; ;main.c: 7: int mainLoop(void);
+[; ;main.c: 8: int randomSeed(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "10
-[v _main `(v ~T0 @X0 1 ef ]
+[v _main `(i ~T0 @X0 1 ef ]
 "11
 {
-[; ;main.c: 10: void main(void)
+[; ;main.c: 10: int main(void)
 [; ;main.c: 11: {
 [e :U _main ]
 [f ]
 [; ;main.c: 13: SYSTEM_Initialize();
 "13
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 16: randomSeed(0);
+[; ;main.c: 16: randomSeed();
 "16
-[e ( _randomSeed -> 0 `i ]
+[e ( _randomSeed ..  ]
 [; ;main.c: 20: TRISA2 = 1;
 "20
 [e = _TRISA2 -> -> 1 `i `b ]
@@ -2339,28 +2339,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 276  ]
 [e :U 277 ]
 [; ;main.c: 35: }
-[; ;main.c: 36: }
+[; ;main.c: 36: return 0;
 "36
+[e ) -> 0 `i ]
+[e $UE 274  ]
+[; ;main.c: 37: }
+"37
 [e :UE 274 ]
 }
-"38
-[v _mainLoop `(v ~T0 @X0 1 ef ]
+"39
+[v _mainLoop `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 38: void mainLoop(void){
+[; ;main.c: 39: int mainLoop(void){
 [e :U _mainLoop ]
 [f ]
-"39
-[v _val_dice `i ~T0 @X0 1 a ]
 "40
-[v _prev_dice `i ~T0 @X0 1 a ]
+[v _val_dice `i ~T0 @X0 1 a ]
 "41
+[v _prev_dice `i ~T0 @X0 1 a ]
+"43
 [v _j `i ~T0 @X0 1 a ]
-[; ;main.c: 39: int val_dice;
-[; ;main.c: 40: int prev_dice;
-[; ;main.c: 41: int j = rand() % 10;
+[; ;main.c: 40: int val_dice;
+[; ;main.c: 41: int prev_dice;
+[; ;main.c: 43: int j = rand() % 10;
 [e = _j % ( _rand ..  -> 10 `i ]
-[; ;main.c: 42: for (int a = 20 + j ; a > 0 ; a--){
-"42
+[; ;main.c: 44: for (int a = 20 + j ; a > 0 ; a--){
+"44
 {
 [v _a `i ~T0 @X0 1 a ]
 [e = _a + -> 20 `i _j ]
@@ -2368,52 +2372,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 280  ]
 [e :U 279 ]
 {
-[; ;main.c: 43: val_dice = rand() % 6 ;
-"43
+[; ;main.c: 45: val_dice = rand() % 6 ;
+"45
 [e = _val_dice % ( _rand ..  -> 6 `i ]
-[; ;main.c: 44: if (val_dice != prev_dice) {
-"44
+[; ;main.c: 46: if (val_dice != prev_dice) {
+"46
 [e $ ! != _val_dice _prev_dice 282  ]
 {
-[; ;main.c: 45: PORTA = DICE[val_dice];
-"45
-[e = _PORTA -> *U + &U _DICE * -> -> _val_dice `ui `ux -> -> # *U &U _DICE `ui `ux `uc ]
-[; ;main.c: 46: TRISA2=0;
-"46
-[e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 47: _delay((unsigned long)((10)*(125000/4000.0)));
+[; ;main.c: 47: PORTA = DICE[val_dice];
 "47
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 48: TRISA2=1;
+[e = _PORTA -> *U + &U _DICE * -> -> _val_dice `ui `ux -> -> # *U &U _DICE `ui `ux `uc ]
+[; ;main.c: 48: TRISA2=0;
 "48
-[e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 49: prev_dice = val_dice;
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;main.c: 49: _delay((unsigned long)((10)*(125000/4000.0)));
 "49
-[e = _prev_dice _val_dice ]
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
+[; ;main.c: 50: TRISA2=1;
 "50
+[e = _TRISA2 -> -> 1 `i `b ]
+[; ;main.c: 51: prev_dice = val_dice;
+"51
+[e = _prev_dice _val_dice ]
+"52
 }
 [e :U 282 ]
-"51
+"53
 }
-"42
+"44
 [e -- _a -> 1 `i ]
 [e $ > _a -> 0 `i 279  ]
 [e :U 280 ]
-"51
-}
-[; ;main.c: 50: }
-[; ;main.c: 51: }
-[; ;main.c: 52: TRISA2=0;
-"52
-[e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 53: _delay((unsigned long)((600)*(125000/4000.0)));
 "53
-[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 54: TRISA2=1;
+}
+[; ;main.c: 52: }
+[; ;main.c: 53: }
+[; ;main.c: 54: TRISA2=0;
 "54
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;main.c: 55: _delay((unsigned long)((600)*(125000/4000.0)));
+"55
+[e ( __delay (1 -> * -> -> 600 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
+[; ;main.c: 56: TRISA2=1;
+"56
 [e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 57: for (int i=0; i<255 ; i++){
-"57
+[; ;main.c: 59: for (int i=0; i<255 ; i++){
+"59
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -2421,47 +2425,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 284  ]
 [e :U 283 ]
 {
-[; ;main.c: 58: _delay((unsigned long)((10)*(125000/4000.0)));
-"58
+[; ;main.c: 60: _delay((unsigned long)((10)*(125000/4000.0)));
+"60
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"59
+"61
 }
-"57
+"59
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 255 `i 283  ]
 [e :U 284 ]
-"59
-}
-[; ;main.c: 59: }
-[; ;main.c: 60: PORTA=0;
-"60
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 61: asm("sleep");
 "61
-[; <" sleep ;# ">
-[; ;main.c: 62: }
+}
+[; ;main.c: 61: }
+[; ;main.c: 62: PORTA=0;
 "62
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 63: asm("sleep");
+"63
+[; <" sleep ;# ">
+[; ;main.c: 65: return 0;
+"65
+[e ) -> 0 `i ]
+[e $UE 278  ]
+[; ;main.c: 66: }
+"66
 [e :UE 278 ]
 }
-"64
-[v _randomSeed `(v ~T0 @X0 1 ef ]
-"65
+"68
+[v _randomSeed `(i ~T0 @X0 1 ef ]
+"69
 {
-[; ;main.c: 64: void randomSeed()
-[; ;main.c: 65: {
+[; ;main.c: 68: int randomSeed()
+[; ;main.c: 69: {
 [e :U _randomSeed ]
 [f ]
-"66
+"70
 [v _randomx `i ~T0 @X0 1 a ]
-[; ;main.c: 66: int randomx = eeprom_read(0x00);
+[; ;main.c: 70: int randomx = eeprom_read(0x00);
 [e = _randomx -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
-[; ;main.c: 67: srand(randomx);
-"67
+[; ;main.c: 72: srand(randomx);
+"72
 [e ( _srand (1 -> _randomx `ui ]
-[; ;main.c: 68: eeprom_write(0x00, rand()%256);
-"68
+[; ;main.c: 74: eeprom_write(0x00, rand()%256);
+"74
 [e ( _eeprom_write (2 , -> -> 0 `i `uc -> % ( _rand ..  -> 256 `i `uc ]
-[; ;main.c: 69: }
-"69
+[; ;main.c: 76: return 0;
+"76
+[e ) -> 0 `i ]
+[e $UE 286  ]
+[; ;main.c: 77: }
+"77
 [e :UE 286 ]
 }

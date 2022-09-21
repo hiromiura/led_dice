@@ -4,16 +4,16 @@
 
 int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001}; // サイコロの点灯パターン
 
-void mainLoop(void);
-void randomSeed();
+int mainLoop(void);
+int randomSeed(void);
 
-void main(void)
+int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
 
     // 乱数の初期化
-    randomSeed(0);
+    randomSeed();
     
     // WPM initialize //
         // Fosc = 125kHz 
@@ -33,11 +33,13 @@ void main(void)
     {
         mainLoop();
     }
+        return 0;
 }
 
-void mainLoop(void){
+int mainLoop(void){
 int val_dice;
 int prev_dice;
+
 int j = rand() % 10;        
     for (int a = 20 + j ; a > 0 ; a--){ // サイコロの目を変える回数
         val_dice = rand() % 6  ;
@@ -59,11 +61,17 @@ int j = rand() % 10;
     }
     PORTA=0;
     SLEEP();
+
+    return 0;
 }
 
-void randomSeed()
+int randomSeed()
 {
     int randomx = eeprom_read(0x00);
+   
     srand(randomx);
+    
     eeprom_write(0x00, rand()%256);
+
+    return 0;
 }
