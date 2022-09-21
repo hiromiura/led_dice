@@ -3527,16 +3527,16 @@ extern char * ftoa(float f, int * status);
 # 5 "main.c"
 int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001};
 
-void mainLoop(void);
-void randomSeed();
+int mainLoop(void);
+int randomSeed(void);
 
-void main(void)
+int main(void)
 {
 
 SYSTEM_Initialize();
 
 
-randomSeed(0);
+randomSeed();
 
 
 
@@ -3556,11 +3556,13 @@ while (1)
 {
 mainLoop();
 }
+return 0;
 }
 
-void mainLoop(void){
+int mainLoop(void){
 int val_dice;
 int prev_dice;
+
 int j = rand() % 10;
 for (int a = 20 + j ; a > 0 ; a--){
 val_dice = rand() % 6 ;
@@ -3582,11 +3584,17 @@ _delay((unsigned long)((10)*(125000/4000.0)));
 }
 PORTA=0;
 asm("sleep");
+
+return 0;
 }
 
-void randomSeed()
+int randomSeed()
 {
 int randomx = eeprom_read(0x00);
+
 srand(randomx);
+
 eeprom_write(0x00, rand()%256);
+
+return 0;
 }
