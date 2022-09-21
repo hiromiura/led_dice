@@ -4,10 +4,8 @@
 
 int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001}; // サイコロの点灯パターン
 
-//unsigned xs;
-
 void mainLoop(void);
-void randomSeed(long val);
+void randomSeed();
 
 void main(void)
 {
@@ -37,17 +35,16 @@ void main(void)
     }
 }
 
-
 void mainLoop(void){
 int val_dice;
 int prev_dice;
-        
-    for (int a = 30 ; a > 0 ; a--){ // サイコロの目を変える回数
+int j = rand() % 10;        
+    for (int a = 20 + j ; a > 0 ; a--){ // サイコロの目を変える回数
         val_dice = rand() % 6  ;
         if (val_dice != prev_dice) {
                 PORTA = DICE[val_dice];
                 TRISA2=0;
-                __delay_ms(1);
+                __delay_ms(10);
                 TRISA2=1;
                 prev_dice = val_dice;
         }
@@ -64,26 +61,9 @@ int prev_dice;
     SLEEP();
 }
 
-void randomSeed(long val)
+void randomSeed()
 {
-     unsigned int temp;
-     static long randomx;
-     TRISA0=1;  // 入力に設定
-     ANSA0=1;   // アナログ入力に設定
-     WPUA0=0;   // 内部プルアップ無効
-     ADCON0=0b00000101; // AN0を選択, ADC有効
-     if (val == 0) {
-          while(1) {
-               GO_nDONE = 1 ;      // PICにアナログ値読取り開始を指示
-               while(GO_nDONE) ;   // PICが読取り完了するまで待つ
-               temp = ( ADRESH << 8 ) | ADRESL ;
-               if (temp > 0) break ;
-          }
-          randomx = temp ;
-     } else randomx = val ;   // 指定数値をそのまま初期値とする
-     ADCON0=0;  // ADC無効
-     WPUA0=1;   // 内部プルアップ有効
-     ANSA0=0;   // アナログ入力無効
-     TRISA0=0;  // ポートを出力に設定
-     srand(randomx);
+    int randomx = eeprom_read(0x00);
+    srand(randomx);
+    eeprom_write(0x00, rand()%256);
 }

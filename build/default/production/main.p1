@@ -2,9 +2,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "70 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"10 main.c
-[v _randomSeed `(v ~T0 @X0 0 ef1`l ]
-"6086 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"8 main.c
+[v _randomSeed `(v ~T0 @X0 0 ef ]
+"6086 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [v _TRISA2 `Vb ~T0 @X0 0 e@1122 ]
 "1057
 [v _PR2 `Vuc ~T0 @X0 0 e@27 ]
@@ -18,37 +18,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T2CON `Vuc ~T0 @X0 0 e@28 ]
 "6077
 [v _TMR2ON `Vb ~T0 @X0 0 e@226 ]
-"9 main.c
+"7 main.c
 [v _mainLoop `(v ~T0 @X0 0 ef ]
 "75 C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h
 [v _rand `(i ~T0 @X0 0 ef ]
-"429 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"429 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 [v F1782 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
+"92 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
 [v __delay `JF1782 ~T0 @X0 0 e ]
 [p i __delay ]
-"6080 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
-[v _TRISA0 `Vb ~T0 @X0 0 e@1120 ]
-"5129
-[v _ANSA0 `Vb ~T0 @X0 0 e@3168 ]
-"6164
-[v _WPUA0 `Vb ~T0 @X0 0 e@4192 ]
-"1826
-[v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
-"5450
-[v _GO_nDONE `Vb ~T0 @X0 0 e@1257 ]
-"1806
-[v _ADRESH `Vuc ~T0 @X0 0 e@156 ]
-"1786
-[v _ADRESL `Vuc ~T0 @X0 0 e@155 ]
+"115 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\eeprom_routines.h
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
 "76 C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h
 [v _srand `(v ~T0 @X0 0 ef1`ui ]
+"114 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\eeprom_routines.h
+[v _eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
 [; ;xc8\pic\include\xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8\pic\include\xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;xc8\pic\include\proc\pic12f1822.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
+"54 C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h
 [; ;xc8\pic\include\proc\pic12f1822.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;xc8\pic\include\proc\pic12f1822.h: 57: typedef union {
@@ -2295,131 +2285,135 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;main.c: 5: int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001};
-[; ;main.c: 9: void mainLoop(void);
-[; ;main.c: 10: void randomSeed(long val);
+[; ;main.c: 7: void mainLoop(void);
+[; ;main.c: 8: void randomSeed();
 [v $root$_main `(v ~T0 @X0 0 e ]
-"12
+"10
 [v _main `(v ~T0 @X0 1 ef ]
-"13
+"11
 {
-[; ;main.c: 12: void main(void)
-[; ;main.c: 13: {
+[; ;main.c: 10: void main(void)
+[; ;main.c: 11: {
 [e :U _main ]
 [f ]
-[; ;main.c: 15: SYSTEM_Initialize();
-"15
+[; ;main.c: 13: SYSTEM_Initialize();
+"13
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 18: randomSeed(0);
-"18
-[e ( _randomSeed (1 -> -> 0 `i `l ]
-[; ;main.c: 22: TRISA2 = 1;
-"22
+[; ;main.c: 16: randomSeed(0);
+"16
+[e ( _randomSeed -> 0 `i ]
+[; ;main.c: 20: TRISA2 = 1;
+"20
 [e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 23: PR2 = 31;
-"23
+[; ;main.c: 21: PR2 = 31;
+"21
 [e = _PR2 -> -> 31 `i `uc ]
-[; ;main.c: 24: CCP1CON = 0b00001100;
-"24
+[; ;main.c: 22: CCP1CON = 0b00001100;
+"22
 [e = _CCP1CON -> -> 12 `i `uc ]
-[; ;main.c: 25: CCPR1L = 16/4;
-"25
+[; ;main.c: 23: CCPR1L = 16/4;
+"23
 [e = _CCPR1L -> / -> 16 `i -> 4 `i `uc ]
-[; ;main.c: 27: TMR2IF = 0;
-"27
+[; ;main.c: 25: TMR2IF = 0;
+"25
 [e = _TMR2IF -> -> 0 `i `b ]
-[; ;main.c: 28: T2CON = 0b00000000;
-"28
+[; ;main.c: 26: T2CON = 0b00000000;
+"26
 [e = _T2CON -> -> 0 `i `uc ]
-[; ;main.c: 29: TMR2ON = 1;
-"29
+[; ;main.c: 27: TMR2ON = 1;
+"27
 [e = _TMR2ON -> -> 1 `i `b ]
-[; ;main.c: 34: while (1)
-"34
+[; ;main.c: 32: while (1)
+"32
 [e :U 276 ]
-[; ;main.c: 35: {
-"35
+[; ;main.c: 33: {
+"33
 {
-[; ;main.c: 36: mainLoop();
-"36
+[; ;main.c: 34: mainLoop();
+"34
 [e ( _mainLoop ..  ]
-"37
+"35
 }
 [e :U 275 ]
-"34
+"32
 [e $U 276  ]
 [e :U 277 ]
-[; ;main.c: 37: }
-[; ;main.c: 38: }
-"38
+[; ;main.c: 35: }
+[; ;main.c: 36: }
+"36
 [e :UE 274 ]
 }
-"41
+"38
 [v _mainLoop `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 41: void mainLoop(void){
+[; ;main.c: 38: void mainLoop(void){
 [e :U _mainLoop ]
 [f ]
-"42
+"39
 [v _val_dice `i ~T0 @X0 1 a ]
-"43
+"40
 [v _prev_dice `i ~T0 @X0 1 a ]
-[; ;main.c: 42: int val_dice;
-[; ;main.c: 43: int prev_dice;
-[; ;main.c: 45: for (int a = 30 ; a > 0 ; a--){
-"45
+"41
+[v _j `i ~T0 @X0 1 a ]
+[; ;main.c: 39: int val_dice;
+[; ;main.c: 40: int prev_dice;
+[; ;main.c: 41: int j = rand() % 10;
+[e = _j % ( _rand ..  -> 10 `i ]
+[; ;main.c: 42: for (int a = 20 + j ; a > 0 ; a--){
+"42
 {
 [v _a `i ~T0 @X0 1 a ]
-[e = _a -> 30 `i ]
+[e = _a + -> 20 `i _j ]
 [e $ > _a -> 0 `i 279  ]
 [e $U 280  ]
 [e :U 279 ]
 {
-[; ;main.c: 46: val_dice = rand() % 6 ;
-"46
+[; ;main.c: 43: val_dice = rand() % 6 ;
+"43
 [e = _val_dice % ( _rand ..  -> 6 `i ]
-[; ;main.c: 47: if (val_dice != prev_dice) {
-"47
+[; ;main.c: 44: if (val_dice != prev_dice) {
+"44
 [e $ ! != _val_dice _prev_dice 282  ]
 {
-[; ;main.c: 48: PORTA = DICE[val_dice];
-"48
+[; ;main.c: 45: PORTA = DICE[val_dice];
+"45
 [e = _PORTA -> *U + &U _DICE * -> -> _val_dice `ui `ux -> -> # *U &U _DICE `ui `ux `uc ]
-[; ;main.c: 49: TRISA2=0;
-"49
+[; ;main.c: 46: TRISA2=0;
+"46
 [e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 50: _delay((unsigned long)((1)*(125000/4000.0)));
-"50
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 51: TRISA2=1;
-"51
+[; ;main.c: 47: _delay((unsigned long)((10)*(125000/4000.0)));
+"47
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
+[; ;main.c: 48: TRISA2=1;
+"48
 [e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 52: prev_dice = val_dice;
-"52
+[; ;main.c: 49: prev_dice = val_dice;
+"49
 [e = _prev_dice _val_dice ]
-"53
+"50
 }
 [e :U 282 ]
-"54
+"51
 }
-"45
+"42
 [e -- _a -> 1 `i ]
 [e $ > _a -> 0 `i 279  ]
 [e :U 280 ]
-"54
+"51
 }
-[; ;main.c: 53: }
-[; ;main.c: 54: }
-[; ;main.c: 55: TRISA2=0;
-"55
+[; ;main.c: 50: }
+[; ;main.c: 51: }
+[; ;main.c: 52: TRISA2=0;
+"52
 [e = _TRISA2 -> -> 0 `i `b ]
-[; ;main.c: 56: _delay((unsigned long)((600)*(125000/4000.0)));
-"56
+[; ;main.c: 53: _delay((unsigned long)((600)*(125000/4000.0)));
+"53
 [e ( __delay (1 -> * -> -> 600 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-[; ;main.c: 57: TRISA2=1;
-"57
+[; ;main.c: 54: TRISA2=1;
+"54
 [e = _TRISA2 -> -> 1 `i `b ]
-[; ;main.c: 60: for (int i=0; i<255 ; i++){
-"60
+[; ;main.c: 57: for (int i=0; i<255 ; i++){
+"57
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -2427,116 +2421,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 284  ]
 [e :U 283 ]
 {
-[; ;main.c: 61: _delay((unsigned long)((10)*(125000/4000.0)));
-"61
+[; ;main.c: 58: _delay((unsigned long)((10)*(125000/4000.0)));
+"58
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"62
+"59
 }
-"60
+"57
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 255 `i 283  ]
 [e :U 284 ]
-"62
+"59
 }
-[; ;main.c: 62: }
-[; ;main.c: 63: PORTA=0;
-"63
+[; ;main.c: 59: }
+[; ;main.c: 60: PORTA=0;
+"60
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 64: asm("sleep");
-"64
+[; ;main.c: 61: asm("sleep");
+"61
 [; <" sleep ;# ">
-[; ;main.c: 65: }
-"65
+[; ;main.c: 62: }
+"62
 [e :UE 278 ]
 }
-"67
-[v _randomSeed `(v ~T0 @X0 1 ef1`l ]
-"68
+"64
+[v _randomSeed `(v ~T0 @X0 1 ef ]
+"65
 {
-[; ;main.c: 67: void randomSeed(long val)
-[; ;main.c: 68: {
+[; ;main.c: 64: void randomSeed()
+[; ;main.c: 65: {
 [e :U _randomSeed ]
-"67
-[v _val `l ~T0 @X0 1 r1 ]
-"68
 [f ]
+"66
+[v _randomx `i ~T0 @X0 1 a ]
+[; ;main.c: 66: int randomx = eeprom_read(0x00);
+[e = _randomx -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
+[; ;main.c: 67: srand(randomx);
+"67
+[e ( _srand (1 -> _randomx `ui ]
+[; ;main.c: 68: eeprom_write(0x00, rand()%256);
+"68
+[e ( _eeprom_write (2 , -> -> 0 `i `uc -> % ( _rand ..  -> 256 `i `uc ]
+[; ;main.c: 69: }
 "69
-[v _temp `ui ~T0 @X0 1 a ]
-"70
-[v F2010 `l ~T0 @X0 1 s randomx ]
-[; ;main.c: 69: unsigned int temp;
-[; ;main.c: 70: static long randomx;
-[; ;main.c: 71: TRISA0=1;
-"71
-[e = _TRISA0 -> -> 1 `i `b ]
-[; ;main.c: 72: ANSA0=1;
-"72
-[e = _ANSA0 -> -> 1 `i `b ]
-[; ;main.c: 73: WPUA0=0;
-"73
-[e = _WPUA0 -> -> 0 `i `b ]
-[; ;main.c: 74: ADCON0=0b00000101;
-"74
-[e = _ADCON0 -> -> 5 `i `uc ]
-[; ;main.c: 75: if (val == 0) {
-"75
-[e $ ! == _val -> -> 0 `i `l 287  ]
-{
-[; ;main.c: 76: while(1) {
-"76
-[e :U 289 ]
-{
-[; ;main.c: 77: GO_nDONE = 1 ;
-"77
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;main.c: 78: while(GO_nDONE) ;
-"78
-[e $U 291  ]
-[e :U 292 ]
-[e :U 291 ]
-[e $ _GO_nDONE 292  ]
-[e :U 293 ]
-[; ;main.c: 79: temp = ( ADRESH << 8 ) | ADRESL ;
-"79
-[e = _temp -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[; ;main.c: 80: if (temp > 0) break ;
-"80
-[e $ ! > _temp -> -> 0 `i `ui 294  ]
-[e $U 290  ]
-[e :U 294 ]
-"81
-}
-[e :U 288 ]
-"76
-[e $U 289  ]
-[e :U 290 ]
-[; ;main.c: 81: }
-[; ;main.c: 82: randomx = temp ;
-"82
-[e = F2010 -> _temp `l ]
-"83
-}
-[; ;main.c: 83: } else randomx = val ;
-[e $U 295  ]
-[e :U 287 ]
-[e = F2010 _val ]
-[e :U 295 ]
-[; ;main.c: 84: ADCON0=0;
-"84
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 85: WPUA0=1;
-"85
-[e = _WPUA0 -> -> 1 `i `b ]
-[; ;main.c: 86: ANSA0=0;
-"86
-[e = _ANSA0 -> -> 0 `i `b ]
-[; ;main.c: 87: TRISA0=0;
-"87
-[e = _TRISA0 -> -> 0 `i `b ]
-[; ;main.c: 88: srand(randomx);
-"88
-[e ( _srand (1 -> F2010 `ui ]
-[; ;main.c: 89: }
-"89
 [e :UE 286 ]
 }

@@ -1,7 +1,7 @@
 
 # 1 "main.c"
 
-# 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\xc.h"
+# 18 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
@@ -11,7 +11,7 @@ extern double __fpnormalize(double);
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 52 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h"
+# 52 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12f1822.h"
 extern volatile unsigned char INDF0 __at(0x000);
 
 asm("INDF0 equ 00h");
@@ -3254,7 +3254,7 @@ extern volatile __bit nTO __at(0x1C);
 extern volatile __bit nWPUEN __at(0x4AF);
 
 
-# 30 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h"
+# 30 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -3265,12 +3265,12 @@ __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longe
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
-# 114 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\eeprom_routines.h"
+# 114 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 
 
-# 91 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h"
+# 91 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -3448,7 +3448,7 @@ void OSCILLATOR_Initialize(void);
 # 95
 void WDT_Initialize(void);
 
-# 4 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\__size_t.h"
+# 4 "C:/Users/hiro/.mchp_packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\__size_t.h"
 typedef unsigned size_t;
 
 # 7 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h"
@@ -3527,10 +3527,8 @@ extern char * ftoa(float f, int * status);
 # 5 "main.c"
 int DICE[6]={0b000010, 0b000001, 0b000011, 0b100001, 0b100011, 0b110001};
 
-
-
 void mainLoop(void);
-void randomSeed(long val);
+void randomSeed();
 
 void main(void)
 {
@@ -3560,17 +3558,16 @@ mainLoop();
 }
 }
 
-
 void mainLoop(void){
 int val_dice;
 int prev_dice;
-
-for (int a = 30 ; a > 0 ; a--){
+int j = rand() % 10;
+for (int a = 20 + j ; a > 0 ; a--){
 val_dice = rand() % 6 ;
 if (val_dice != prev_dice) {
 PORTA = DICE[val_dice];
 TRISA2=0;
-_delay((unsigned long)((1)*(125000/4000.0)));
+_delay((unsigned long)((10)*(125000/4000.0)));
 TRISA2=1;
 prev_dice = val_dice;
 }
@@ -3587,26 +3584,9 @@ PORTA=0;
 asm("sleep");
 }
 
-void randomSeed(long val)
+void randomSeed()
 {
-unsigned int temp;
-static long randomx;
-TRISA0=1;
-ANSA0=1;
-WPUA0=0;
-ADCON0=0b00000101;
-if (val == 0) {
-while(1) {
-GO_nDONE = 1 ;
-while(GO_nDONE) ;
-temp = ( ADRESH << 8 ) | ADRESL ;
-if (temp > 0) break ;
-}
-randomx = temp ;
-} else randomx = val ;
-ADCON0=0;
-WPUA0=1;
-ANSA0=0;
-TRISA0=0;
+int randomx = eeprom_read(0x00);
 srand(randomx);
+eeprom_write(0x00, rand()%256);
 }
